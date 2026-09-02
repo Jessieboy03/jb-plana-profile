@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JB Plana | Professional Profile</title>
+    <link rel="icon" type="image/jpeg" href="profile.jpg">
+    
+    <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #0f172a;
+            --accent: #38bdf8;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        }
+
+        body.dark {
+            --secondary: #e2e8f0;
+            --background: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --border: #334155;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            transition: 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+       
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        body.dark header {
+            background: rgba(15,23,42,0.85);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-btn,
+        .menu-btn {
+            border: none;
+            background: transparent;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+      
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            background:
+                radial-gradient(circle at top right,
+                rgba(37,99,235,0.12),
+                transparent 35%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: rgba(37,99,235,0.1);
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 78px);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .typing {
+            color: var(--muted);
+            font-size: 22px;
+            font-weight: bold;
+            min-height: 35px;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 20px 0 30px;
+            font-size: 16px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            border: 2px solid var(--primary);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37,99,235,0.25);
+        }
+
+        .btn-outline {
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-circle {
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            animation: floating 4s ease-in-out infinite;
+            box-shadow: 0 25px 50px rgba(37,99,235,0.25);
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid var(--background);
+        }
+
+        @keyframes floating {
+            0%,100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+     
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title small {
+            color: var(--primary);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 10px auto;
+        }
+
+    
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-card span {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .skill {
+            margin-bottom: 25px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .skill-header span:last-child {
+            color: var(--primary);
+        }
+
+        .skill-bar {
+            height: 9px;
+            background: var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 20px;
+            transition: width 1.5s ease;
+        }
+
+        
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 45px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 11px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid var(--background);
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .timeline-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-card small {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .timeline-card h3 {
+            margin: 5px 0;
+        }
+
+        .timeline-card p {
+            color: var(--muted);
+        }
+
+        
+        .projects {
+            background: rgba(37,99,235,0.03);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 180px;
+            background: linear-gradient(135deg,#2563eb,#38bdf8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 45px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content p {
+            color: var(--muted);
+            margin: 10px 0 20px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 5px 9px;
+            background: rgba(37,99,235,0.1);
+            color: var(--primary);
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 15px;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contact-card strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-card span {
+            color: var(--muted);
+        }
+
+        .contact-form {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid var(--border);
+            background: var(--background);
+            color: var(--text);
+            border-radius: 8px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+       
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--secondary);
+            color: white;
+        }
+
+        footer span {
+            color: var(--accent);
+        }
+
+    
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
+        #topBtn {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            display: none;
+            font-size: 18px;
+            z-index: 999;
+        }
+
+        
+        @media(max-width: 900px) {
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                width: 220px;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                padding: 20px;
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-content,
+            .about-grid,
+            .skills-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile-wrapper {
+                order: -1;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .profile-circle {
+                width: 250px;
+                height: 250px;
+            }
+
+            .info-box,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+   
+
+    <header>
+        <nav class="navbar">
+
+            <a href="#home" class="logo">JB.</a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <button class="theme-btn" id="themeBtn">🌙</button>
+                <button class="menu-btn" id="menuBtn">☰</button>
+            </div>
+
+        </nav>
+    </header>
+
+
+ 
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-text reveal">
+
+                <span class="badge">AVAILABLE FOR OPPORTUNITIES</span>
+
+                <h1>
+                    Hi, I'm <span>JB Plana</span>
+                </h1>
+
+                <div class="typing" id="typing"></div>
+
+                <p class="hero-description">
+                    I am a dedicated and motivated professional passionate
+                    about technology, creativity, and continuous learning.
+
+                    I create meaningful digital experiences and professional
+                    solutions.
+                </p>
+
+                <div class="buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        Contact Me
+                    </a>
+
+                    <a href="#projects" class="btn btn-outline">
+                        View My Work
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="profile-wrapper reveal">
+
+        
+
+                <div class="profile-circle">
+                    <img src="profile.jpg" alt="Profile Photo">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <small>About Me</small>
+                <h2>Professional Profile</h2>
+                <p>
+                    A short introduction about myself, my goals,
+                    and what I can contribute.
+                </p>
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-text reveal">
+
+                    <h3>Who Am I?</h3>
+
+                    <p>
+                        Hello! I am <strong>Jessie Boy Plana</strong>.
+                        I am a hardworking and responsible individual
+                        who enjoys learning new skills and taking on
+                        new challenges.
+                    </p>
+
+                    <p>
+                        My goal is to continuously improve my technical
+                        and professional abilities while creating useful,
+                        reliable, and meaningful work.
+                    </p>
+
+                    <p>
+                        I believe that professionalism, consistency,
+                        creativity, and willingness to learn are important
+                        qualities for long-term success.
+                    </p>
+
+                </div>
+
+
+                <div class="info-box reveal">
+
+                    <div class="info-card">
+                        <strong>📍 Location</strong>
+                        <span>Plana Residence, Purok Palayan, Catublian Hinunangan Southern Leyte, Philippines 6608</span>
+                    </div>
+
+                    <div class="info-card">
+                        <strong>🎓 Education</strong>
+                        <span>Bachelor of Science in Information Technology (Batch 2025)</span>
+                    </div>
+
+                    <div class="info-card">
+                        <strong>💼 Experience</strong>
+                        <span>Currently a Government Employee (14 Months)</span>
+                    </div>
+
+                    <div class="info-card">
+                        <strong>📧 Email</strong>
+                        <span>jbplana84@gmail.com</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <small>My Skills</small>
+
+                <h2>Technical & Professional Skills</h2>
+
+                <p>
+                    Skills and technologies that I have experience with.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="reveal">
+
+                    <div class="skill">
+
+                        <div class="skill-header">
+                            <span>HTML</span>
+                            <span>90%</span>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-header">
+                            <span>CSS</span>
+                            <span>85%</span>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-header">
+                            <span>JavaScript</span>
+                            <span>75%</span>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reveal">
+
+                    <div class="skill">
+
+                        <div class="skill-header">
+                            <span>Communication</span>
+                            <span>90%</span>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-header">
+                            <span>Problem Solving</span>
+                            <span>85%</span>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-header">
+                            <span>Teamwork</span>
+                            <span>95%</span>
+                        </div>
+
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="experience">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <small>My Journey</small>
+
+                <h2>Experience & Education</h2>
+
+                <p>
+                    My professional and academic journey.
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+
+                        <small>2026 - Present</small>
+
+                        <h3>Administrative Aide I</h3>
+
+                        <strong>Local Government Unit of Hinunangan</strong>
+
+                        <p>
+                            Official Photographer and a Social Media Manager.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+
+                        <small>January - April (2025)</small>
+
+                        <h3>On - Job - Training</h3>
+
+                        <strong>NHE Marketing</strong>
+
+                        <p>
+                            Successfully done on 600 Hours and have a total of around 30 to 40 customers both Credit and Cash.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+
+                        <small>2022 - 2025</small>
+
+                        <h3>Bachelor of Science in Information Technology | Programming</h3>
+
+                        <strong>Southern Leyte State University - Hinunangan Campus</strong>
+
+                        <p>
+
+                            Capstone Title - NHE Marketing System (90%)
+                            
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="projects" id="projects">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <small>Portfolio</small>
+
+                <h2>Featured Projects</h2>
+
+                <p>
+                    Some examples of my work and personal projects.
+                </p>
+
+            </div>
+
+
+            <div class="project-grid">
+
+
+                <div class="project-card reveal">
+
+                    <div class="project-image">
+                        💻
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>Personal Website</h3>
+
+                        <p>
+                            A modern responsive personal website
+                            designed using HTML, CSS, and JavaScript.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-card reveal">
+
+                    <div class="project-image">
+                        📊
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>NHE Marketing Management System</h3>
+
+                        <p>
+                            A simple management system designed
+                            to organize information and improve reports and credit, cash customers and workflow.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">Database</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-card reveal">
+
+                    <div class="project-image">
+                        🚀
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>Future Project</h3>
+
+                        <p>
+                            Upcoming project.... wala pa
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Innovation</span>
+                            <span class="tag">Technology</span> 
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+
+                <small>Get In Touch</small>
+
+                <h2>Let's Work Together</h2>
+
+                <p>
+                    Feel free to contact me for opportunities,
+                    collaborations, or inquiries.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <div class="contact-info reveal">
+
+                    <div class="contact-card">
+                        <strong>📧 Email</strong>
+                        <span>jbplana84@gmail.com</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <strong>📱 Phone</strong>
+                        <span>+63 927 603 0100</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <strong>📍 Location</strong>
+                        <span>Purok Palayan, Catublian Hinunangan Southern Leyte, Philippines 6608</span>
+                    </div>
+
+                    <div class="contact-card">
+                        <strong>🔗 Social Media</strong>
+                        <span>FB - Jessie Boy Pana | LinkedIn - wa iton karton | GitHub - wala also</span>
+                    </div>
+
+                </div>
+
+
+                <form class="contact-form reveal" id="contactForm">
+
+                    <div class="form-group">
+
+                        <label>Your Name</label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Email Address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Message</label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <p>
+            © <span id="year"></span>
+            JB Plana. All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <button id="topBtn">↑</button>
+
+
+    <script>
+
+
+        const typingText = document.getElementById("typing");
+
+        const words = [
+            "Web Developer",
+            "IT Professional",
+            "Creative Thinker",
+            "Problem Solver"
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typeEffect() {
+
+            const currentWord = words[wordIndex];
+
+            if (!deleting) {
+
+                typingText.textContent =
+                    currentWord.substring(0, charIndex + 1);
+
+                charIndex++;
+
+                if (charIndex === currentWord.length) {
+
+                    deleting = true;
+
+                    setTimeout(typeEffect, 1500);
+
+                    return;
+                }
+
+            } else {
+
+                typingText.textContent =
+                    currentWord.substring(0, charIndex - 1);
+
+                charIndex--;
+
+                if (charIndex === 0) {
+
+                    deleting = false;
+
+                    wordIndex++;
+
+                    if (wordIndex >= words.length) {
+                        wordIndex = 0;
+                    }
+
+                }
+
+            }
+
+            setTimeout(typeEffect, deleting ? 60 : 100);
+        }
+
+        typeEffect();
+
+
+       
+
+        const themeBtn = document.getElementById("themeBtn");
+
+        themeBtn.addEventListener("click", function() {
+
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+
+                themeBtn.textContent = "☀️";
+
+                localStorage.setItem("theme", "dark");
+
+            } else {
+
+                themeBtn.textContent = "🌙";
+
+                localStorage.setItem("theme", "light");
+
+            }
+
+        });
+
+
+
+        if (localStorage.getItem("theme") === "dark") {
+
+            document.body.classList.add("dark");
+
+            themeBtn.textContent = "☀️";
+
+        }
+
+
+        
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function() {
+
+            navLinks.classList.toggle("show");
+
+        });
+
+
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", function() {
+
+                navLinks.classList.remove("show");
+
+            });
+
+        });
+
+
+       
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        function revealOnScroll() {
+
+            revealElements.forEach(element => {
+
+                const windowHeight =
+                    window.innerHeight;
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        revealOnScroll();
+
+
+    
+
+        let skillsAnimated = false;
+
+        function animateSkills() {
+
+            const skillsSection =
+                document.getElementById("skills");
+
+            const position =
+                skillsSection.getBoundingClientRect().top;
+
+            if (
+                position <
+                window.innerHeight - 100 &&
+                !skillsAnimated
+            ) {
+
+                document.querySelectorAll(".skill-progress")
+                    .forEach(bar => {
+
+                        bar.style.width =
+                            bar.getAttribute("data-width");
+
+                    });
+
+                skillsAnimated = true;
+            }
+
+        }
+
+        window.addEventListener("scroll", animateSkills);
+
+
+      
+
+        const topBtn = document.getElementById("topBtn");
+
+        window.addEventListener("scroll", function() {
+
+            if (window.scrollY > 500) {
+
+                topBtn.style.display = "block";
+
+            } else {
+
+                topBtn.style.display = "none";
+
+            }
+
+        });
+
+        topBtn.addEventListener("click", function() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("name").value;
+
+            alert(
+                "Thank you, " +
+                name +
+                "! Your message has been received."
+            );
+
+            contactForm.reset();
+
+        });
+
+
+     
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
